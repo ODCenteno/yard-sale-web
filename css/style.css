@@ -11,8 +11,86 @@ html {
   --Very-light-pink: #c7c7c7;
   --Text-input-field: #F7F7F7;
   --Hospital-green: #ACD9B2;
+  --sm: 14px;
+  --md: 16px;
+  --lg: 18px;
+  --xsm: 12px;
 }
 
 body {
   font-family: 'Quicksand', sans-serif;
 }
+
+/* New Password Form */
+.main-container {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100vh;
+}
+  .password-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 30rem;
+    padding: 16px;
+  }
+  .logo {
+    justify-self: center;
+    margin-bottom: 16px;
+    display: none;
+  }
+  @media (max-width: 400px) {
+    .logo {
+      display: block;
+    }
+  }
+
+  .title {
+    font-size: var(--lg);
+    text-align: center;
+  }
+  .subtitle {
+    font-size: var(--md);
+    text-align: center;
+    font-weight: 300;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  .label {
+    font-size: var(--sm);
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  .input-password {
+    padding: 4px;
+    height: 24px;
+    font-size: var(--sm);
+    margin-bottom: 12px;
+    background-color: var(--Text-input-field);
+    border: none;
+    border-radius: 8px;
+  }
+  .login-button {
+    border: none;
+    border-radius: 8px;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 16px;
+    background-color: var(--Hospital-green);
+    font-size: var(--md);
+    font-weight: bold;
+    color: var(--White);
+    cursor: pointer;
+    margin-top: 12px;
+  }
+  .label-checkbox {
+    display: flex;
+    align-items: center;
+    font-size: var(--xsm);
+  }
+  .pswrd-checkbox {
+    margin-right: 4px;
+  }
+
