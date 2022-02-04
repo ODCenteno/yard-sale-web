@@ -39,10 +39,18 @@ body {
     margin-bottom: 16px;
     display: none;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 450px) {
     .logo {
       display: block;
+      margin-bottom: 10rem;
+      width: 50%;
     }
+    .secondary-button {
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 24px;
+      width: inherit;
+  }
   }
 
   .title {
@@ -59,21 +67,33 @@ body {
     flex-direction: column;
     align-items: center;
   }
+    .form a {
+      color: var(--Hospital-green);
+      font-size: var(--sm);
+      text-align: center;
+      text-decoration: none;
+      margin-bottom: 52px;
+    }
   .label {
     font-size: var(--sm);
     margin-bottom: 8px;
     font-weight: bold;
   }
-  .input-password {
+    #label-login {
+      align-self: flex-start;
+    }
+
+  .input {
+    width: 100%;
     padding: 4px;
     height: 24px;
     font-size: var(--sm);
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     background-color: var(--Text-input-field);
     border: none;
     border-radius: 8px;
   }
-  .login-button {
+  .primary-button {
     border: none;
     border-radius: 8px;
     height: 50px;
@@ -83,6 +103,19 @@ body {
     font-size: var(--md);
     font-weight: bold;
     color: var(--White);
+    cursor: pointer;
+    margin-top: 12px;
+  }
+  .secondary-button {
+    width: 30rem;
+    border: 1px solid var(--Hospital-green);
+    border-radius: 8px;
+    height: 50px;
+    margin-bottom: 16px;
+    background-color: var(--White);
+    font-size: var(--md);
+    font-weight: bold;
+    color: var(--Hospital-green);
     cursor: pointer;
     margin-top: 12px;
   }
