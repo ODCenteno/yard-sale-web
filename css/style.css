@@ -19,13 +19,15 @@ html {
 
 body {
   font-family: 'Quicksand', sans-serif;
+  display: grid;
+  place-items: center;
 }
 
 /* New Password Form */
 .main-container {
   display: grid;
   place-items: center;
-  width: 100%;
+  width: 33rem;
   height: 100vh;
 }
   .form-container {
@@ -49,13 +51,14 @@ body {
       position: absolute;
       bottom: 0;
       margin-bottom: 24px;
-      width: inherit;
+      /* width: inherit; */
   }
   }
 
   .title {
     font-size: var(--lg);
     text-align: center;
+    margin: 36px 0;
   }
   .subtitle {
     font-size: var(--md);
@@ -82,7 +85,9 @@ body {
     #label-login {
       align-self: flex-start;
     }
-
+    #label-name {
+      align-self: flex-start;
+    }
   .input {
     width: 100%;
     padding: 4px;
@@ -136,6 +141,12 @@ body {
     color: var(--Hospital-green);
     text-decoration: none;
   }
+  .value {
+    align-self: start;
+    color: var(--Very-light-pink);
+    font-size: var(--md);
+    margin: 8px 0 32px 4px;
+  }
 
 /* Email confirmation */
 .email-icon-bg {
@@ -150,4 +161,62 @@ body {
 }
 .email-icon {
   width: 80px;
+}
+
+/* Main Page */
+.principal-container {
+  width: 100%;
+}
+.cards-container {
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 26px;
+}
+  .product-card {
+    width: 240px;
+  }
+    .product-card-img {
+      width: 240px;
+      height: 240px;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+    .product-card-details {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px;
+    }
+    .product-info {
+      padding: 4px;
+    }
+    .product-info p:nth-child(1) {
+      font-weight: bold;
+      font-size: var(--md);
+      margin: 0 0 4px 0;
+    }
+    .product-info p:nth-child(2) {
+      margin: 0;
+      font-size: var(--sm);
+      color: var(--Very-light-pink);
+    }
+    .icon-card-img {
+      /* display: grid;
+      align-items: center; */
+      margin: 0;
+      padding: 4px;
+      width: 40px;
+    }
+
+@media (max-width: 640px) {
+  .cards-container {
+    grid-template-columns: repeat(auto-fill, 140px);
+  }
+  .product-card {
+    width: 140px;
+  }
+    .product-card-img {
+      width: 140px;
+      height: 140px;
+    }
 }

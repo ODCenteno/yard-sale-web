@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yard Sale Email Send</title>
+  <title>Yard Sale Account</title>
   <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,18 +16,20 @@
   <div class="main-container">
     <div class="form-container">
       <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
-      <h1 class="title">Email has been sent!</h1>
-      <p class="subtitle">Please check your inbox for instructions on how to reset the password</p>
+      <h1 class="title">My account</h1>
       <form action="/" class="form">
-        <picture class="email-icon-bg">
-          <img src="./icons/email.svg" alt="email-envelope" class="email-icon">
-        </picture>
-        <input type="submit" value="Log in" class="primary-button login-button">
-        <label for="" class="label-bottom-button">
-           Didn't receive the email? <a href="/" class="text-link">Resend</a>
-        </label>
+        
+        <label for="name" class="label name" id="label-name">Your name</label>
+        <p class="value">Camila Yokoo</p>
+        
+        <label for="email" class="label" id="label-login">Email address</label>
+        <p class="value">camilayokoo@gmail.com</p>
+
+        <label for="password" class="label" id="label-login">Password</label>
+        <p class="value">***********</p>
       </form>
     </div>
+    <input type="submit" value="Edit" class="secondary-button">
   </div>
 </body>
 </html>
