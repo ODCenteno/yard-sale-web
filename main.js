@@ -3,11 +3,7 @@ const desktopMenu = document.querySelector('.menu-desktop')
 const iconMenu = document.querySelector('.icon-menu')
 const mobileMenu = document.querySelector('.menu-mobile')
 const iconCart = document.querySelector('.navbar-shopping-cart-icon')
-const shoppingCartMenu = document.querySelector('.product-detail')
-
-emailMenu.addEventListener('click', toggleDesktopMenu)
-iconMenu.addEventListener('click', toggleMobileMenu)
-iconCart.addEventListener('click', toggleShoppingCartMenu)
+const shoppingCartMenu = document.querySelector('#shopping-cart-container')
 
 const productList = [];
 
@@ -44,6 +40,36 @@ let product3 = {
 productList.push(coolBoard, bicycle, product1, product2, product3)
 productList.push(coolBoard, bicycle, product1, product2, product3)
 
+function renderProducts(productList) {
+    for (product of productList) {
+        const htmlCards = `
+        <div class="product-card">
+        <img src='${product.image}' alt="" class="product-card-img">
+        
+        <div class="product-card-details">
+        <div id="product-info" class="product-info">
+        <p>$ '${product.price}'</p>
+        <p>${product.name}</p>
+        </div>
+        <figure class="icon-card-img">
+        <img class="icon-cart" src="./icons/bt_add_to_cart.svg" alt="add-to-cart">
+        </figure>
+        </div>
+        </div>
+        `
+        
+        const cardsContainer = document.querySelector('.cards-container')
+        cardsContainer.innerHTML += htmlCards
+    }
+
+}
+
+renderProducts(productList);
+
+emailMenu.addEventListener('click', toggleDesktopMenu)
+iconMenu.addEventListener('click', toggleMobileMenu)
+iconCart.addEventListener('click', toggleShoppingCartMenu)
+
 function toggleDesktopMenu() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
     const isShoppingCartMenuClosed = shoppingCartMenu.classList.contains('inactive')
@@ -79,27 +105,3 @@ function toggleShoppingCartMenu() {
     shoppingCartMenu.classList.toggle('inactive')
 }
 
-function renderProducts(productList) {
-    for (product of productList) {
-        const htmlCards = `
-        <div class="product-card">
-        <img src='${product.image}' alt="" class="product-card-img">
-        
-        <div class="product-card-details">
-        <div class="product-info">
-        <p>$ '${product.price}'</p>
-        <p>${product.name}</p>
-        </div>
-        <figure class="icon-card-img">
-        <img class="icon-cart" src="./icons/bt_add_to_cart.svg" alt="add-to-cart">
-        </figure>
-        </div>
-        </div>
-        `
-        
-        const cardsContainer = document.querySelector('.cards-container')
-        cardsContainer.innerHTML += htmlCards
-    }
-}
-
-renderProducts(productList);
