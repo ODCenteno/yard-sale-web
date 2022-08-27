@@ -493,9 +493,8 @@ aside {
   box-shadow: 1px 2px 5px var(--Dark);
 }
 
+
 .product-detail-close {
-  width: 16px;
-  height: 16px;
   padding: 8px;
   position: absolute;
   top: 12px;
@@ -609,9 +608,7 @@ aside {
   .email-sign-out {
     margin-top: 50px;
   }
-  .back-to-orders {
-    display: none;
-  }
+ 
   .logo {
     display: block;
     margin-bottom: 10rem;
@@ -629,7 +626,6 @@ aside {
   }
   aside {
     min-width: 25%;
-    padding-top: 12px;
   }
 
 

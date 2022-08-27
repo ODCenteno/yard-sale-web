@@ -4,6 +4,8 @@ const iconMenu = document.querySelector('.icon-menu')
 const mobileMenu = document.querySelector('.menu-mobile')
 const iconCart = document.querySelector('.navbar-shopping-cart-icon')
 const shoppingCartMenu = document.querySelector('#shopping-cart-container')
+// const productDetailAside = document.querySelector('#product-detail')
+const productDetailsCloseBtn = document.querySelector('.product-detail-close')
 
 const productList = [];
 
@@ -40,15 +42,19 @@ let product3 = {
 productList.push(coolBoard, bicycle, product1, product2, product3)
 productList.push(coolBoard, bicycle, product1, product2, product3)
 
+let productId = 0;
+
 function renderProducts(productList) {
     for (product of productList) {
+        productId++
+
         const htmlCards = `
-        <div class="product-card">
-        <img src='${product.image}' alt="" class="product-card-img">
+        <div id='product${productId}' class="product-card">
+        <img id='product-img-${productId}' src='${product.image}' alt="" class="product-card-img">
         
         <div class="product-card-details">
         <div id="product-info" class="product-info">
-        <p>$ '${product.price}'</p>
+        <p>$ ${product.price}</p>
         <p>${product.name}</p>
         </div>
         <figure class="icon-card-img">
@@ -57,7 +63,7 @@ function renderProducts(productList) {
         </div>
         </div>
         `
-        
+
         const cardsContainer = document.querySelector('.cards-container')
         cardsContainer.innerHTML += htmlCards
     }
@@ -69,8 +75,17 @@ renderProducts(productList);
 emailMenu.addEventListener('click', toggleDesktopMenu)
 iconMenu.addEventListener('click', toggleMobileMenu)
 iconCart.addEventListener('click', toggleShoppingCartMenu)
+// productDetailsCloseBtn.addEventListener('click', closeProductDetails)
+
+const productCardImg = document.querySelectorAll(".product-card-img")
+console.log(productCardImg)
+const listProductCarts = productCardImg.forEach(node => {
+    node.addEventListener('click', (evt) => openProductDetailAside(node.currentSrc, evt))
+})
+
 
 function toggleDesktopMenu() {
+    productDetailAside.classList.add('inactive');
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
     const isShoppingCartMenuClosed = shoppingCartMenu.classList.contains('inactive')
  
@@ -82,6 +97,7 @@ function toggleDesktopMenu() {
 }
 
 function toggleMobileMenu() {
+    productDetailAside.classList.add('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
     const isShoppingCartMenuClosed = shoppingCartMenu.classList.contains('inactive')
 
@@ -94,6 +110,7 @@ function toggleMobileMenu() {
 }
 
 function toggleShoppingCartMenu() {
+    productDetailAside.classList.add('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
 
@@ -102,6 +119,44 @@ function toggleShoppingCartMenu() {
         mobileMenu.classList.add('inactive');
     }
 
-    shoppingCartMenu.classList.toggle('inactive')
+    shoppingCartMenu.classList.toggle('inactive');
 }
 
+function openProductDetailAside(srcImage, event) {
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    shoppingCartMenu.classList.add('inactive');
+
+    console.log(srcImage)
+
+    const asideProductDetails = `
+    <aside id="product-detail" class="inactive">
+    <div class="product-detail-close">
+      <img src='./icons/icon_close.png'>
+    </div>
+    <img class="product-detail-img" src="${srcImage}" alt="coolboard">
+    <div class="points">
+      <li class="active-point"></li>
+      <li></li>
+      <li></li>
+    </div>
+    <div class="product-info product-detail-info">
+      <p>$ 160.00</p>
+      <p>Coolboard</p>
+      <p class="product-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dignissimos eius quibusdam alias unde reprehenderit, quisquam molestias dolor cumque nam?</p>
+      <div class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Add to cart
+      </div>
+    </div>
+  </aside>
+    `
+    const body = document.querySelector('body')
+    body.innerHTML += asideProductDetails
+    asideProductDetails.classList.remove('inactive');
+    productDetailsCloseBtn.addEventListener('click', closeProductDetails)
+}
+
+function closeProductDetails() {
+    productDetailAside.classList.add('inactive');
+}
