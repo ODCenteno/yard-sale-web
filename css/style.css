@@ -494,8 +494,6 @@ aside {
 }
 
 .product-detail-close {
-  width: 16px;
-  height: 16px;
   padding: 8px;
   position: absolute;
   top: 12px;
@@ -629,7 +627,6 @@ aside {
   }
   aside {
     min-width: 25%;
-    padding-top: 12px;
   }
 
 

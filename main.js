@@ -40,15 +40,18 @@ let product3 = {
 productList.push(coolBoard, bicycle, product1, product2, product3)
 productList.push(coolBoard, bicycle, product1, product2, product3)
 
+let productId = 0;
+
 function renderProducts(productList) {
     for (product of productList) {
+        productId++
         const htmlCards = `
-        <div class="product-card">
-        <img src='${product.image}' alt="" class="product-card-img">
+        <div id="product-id-${productId}" class="product-card">
+        <img id="productid-img-${productId}" src='${product.image}' alt="" class="product-card-img">
         
         <div class="product-card-details">
         <div id="product-info" class="product-info">
-        <p>$ '${product.price}'</p>
+        <p>$ ${product.price}</p>
         <p>${product.name}</p>
         </div>
         <figure class="icon-card-img">
@@ -70,7 +73,20 @@ emailMenu.addEventListener('click', toggleDesktopMenu)
 iconMenu.addEventListener('click', toggleMobileMenu)
 iconCart.addEventListener('click', toggleShoppingCartMenu)
 
+
+const imgProductCard = document.querySelectorAll('.product-card-img');
+imgProductCard.forEach( node => {
+    node.addEventListener('click', openAsideProductDetail);
+})
+
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
+
+const productDetailAside = document.querySelector('#product-detail')
+
+
 function toggleDesktopMenu() {
+    productDetailAside.classList.add('inactive');
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
     const isShoppingCartMenuClosed = shoppingCartMenu.classList.contains('inactive')
  
@@ -82,6 +98,7 @@ function toggleDesktopMenu() {
 }
 
 function toggleMobileMenu() {
+    productDetailAside.classList.add('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
     const isShoppingCartMenuClosed = shoppingCartMenu.classList.contains('inactive')
 
@@ -94,6 +111,7 @@ function toggleMobileMenu() {
 }
 
 function toggleShoppingCartMenu() {
+    productDetailAside.classList.add('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
 
@@ -105,3 +123,14 @@ function toggleShoppingCartMenu() {
     shoppingCartMenu.classList.toggle('inactive')
 }
 
+function openAsideProductDetail() {
+    mobileMenu.classList.add('inactive');
+    shoppingCartMenu.classList.add('inactive')
+    desktopMenu.classList.add('inactive');
+
+    productDetailAside.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailAside.classList.add('inactive');
+}
