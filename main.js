@@ -1,6 +1,13 @@
+const navbarLogo = document.querySelector('.navbar-logo')
+const iconMenu = document.querySelector('.icon-menu')
+
+// Email - Desktop Menu
 const emailMenu = document.querySelector('.email')
 const desktopMenu = document.querySelector('.menu-desktop')
-const iconMenu = document.querySelector('.icon-menu')
+const myOrdersMenuLink = document.querySelector('#my-orders-menu-link')
+const myAccountMenuLink = document.querySelector('#my-account-menu-link')
+const btnEditAccount = document.querySelector('#btn-edit-account')
+// Mobile Menu
 const mobileMenu = document.querySelector('.menu-mobile')
 const iconCart = document.querySelector('.navbar-shopping-cart-icon')
 const shoppingCartMenu = document.querySelector('#shopping-cart-container')
@@ -69,10 +76,6 @@ function renderProducts(productList) {
 
 renderProducts(productList);
 
-emailMenu.addEventListener('click', toggleDesktopMenu)
-iconMenu.addEventListener('click', toggleMobileMenu)
-iconCart.addEventListener('click', toggleShoppingCartMenu)
-
 
 const imgProductCard = document.querySelectorAll('.product-card-img');
 imgProductCard.forEach( node => {
@@ -134,3 +137,19 @@ function openAsideProductDetail() {
 function closeProductDetailAside() {
     productDetailAside.classList.add('inactive');
 }
+
+function goToHomePage() {
+    window.location.href = './index.html'
+}
+
+emailMenu.addEventListener('click', toggleDesktopMenu)
+iconMenu.addEventListener('click', toggleMobileMenu)
+iconCart.addEventListener('click', toggleShoppingCartMenu)
+navbarLogo.addEventListener('click', goToHomePage)
+myOrdersMenuLink.addEventListener('click', () => {
+    document.location.href = './orders.html'   
+})
+myAccountMenuLink.addEventListener('click', () => {
+    document.location.href = './account.html'   
+})
+btnEditAccount.addEventListener('click', goToHomePage)

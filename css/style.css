@@ -27,7 +27,7 @@ body {
   place-items: center;
 }
 
-/* New Password Form */
+/* Account New Password Form */
 .main-container {
   display: grid;
   place-items: center;
@@ -44,6 +44,7 @@ body {
     justify-self: center;
     margin-bottom: 16px;
     display: none;
+    cursor: pointer;
   }
 
   .title {
@@ -238,7 +239,7 @@ body {
     border-top: 1px solid var(--Very-light-pink);
   }
 
-  /* Menu Desktop */
+  /* Menu Mobile */
 
   .menu-mobile {
     position: absolute;
@@ -289,7 +290,7 @@ body {
     border-top: 1px solid var(--Very-light-pink);
   }
 
-
+/* Email Menu - Account */
   .email {
     font-size: var(--sm);
     color: var(--Very-light-pink);
@@ -300,6 +301,13 @@ body {
   .email:hover {
     color: var(--Hospital-green);
   }
+  #my-orders-menu-link {
+    cursor: pointer;
+  }
+  #my-account-menu-link {
+    cursor: pointer;
+  }
+
   .sign-out {
     color: var(--Hospital-green);
     font-size: var(--sm);
@@ -436,6 +444,7 @@ nav {
 }
 .navbar-logo {
   width: 120px;
+  cursor: pointer;
 }
 .navbar-left ul,
 .navbar-right ul {
